@@ -3,6 +3,7 @@ import Toast from "./Utils/CustomToasts/Toast";
 import UserSearchContext from "./Context/UserSearchContext";
 import DriverLocation from "./Context/DriverLocation";
 import ChatProvider from "./Context/ChatProvider";
+console.log('hello');
 
 function App() {
   return (
