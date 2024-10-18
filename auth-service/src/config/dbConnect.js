@@ -7,7 +7,7 @@ export const dbConnect = async () => {
     const connection = await mongoose.connect(mongoString);
     if (connection) {
       infologger.info("Auth Db Connected SucecessFully");
-    }
+    }  
   } catch (error) {
     errorLogger.error("err",error);
     throw error;
