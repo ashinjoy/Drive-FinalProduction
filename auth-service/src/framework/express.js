@@ -21,9 +21,9 @@ const createServer = () => {
       },
     })
   );
-  app.use("/auth/user", userRouter);
-  app.use("/auth/driver", driverRouter);
-  app.use("/auth/admin", adminRouter);
+  app.use("/api/auth/user", userRouter);
+  app.use("/api/auth/driver", driverRouter);
+  app.use("/api/auth/admin", adminRouter);
   app.use(ErrorHandling.errorHandler);
   return app;
 };

@@ -8,7 +8,7 @@ export const socketConnection = async (httpServer) => {
     io = new Server(httpServer, {
       path:"/socket.io/trip",
       cors: {
-        origin:"http://localhost:3000",
+        origin:"https://drivee.online",
       },
     });
     io.on("connection", (socket) => {

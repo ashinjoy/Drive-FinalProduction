@@ -5,10 +5,10 @@ export class KafkaClient {
     this.kafka = new Kafka({
       clientId: "auth-service",
       brokers: [
-        // "kafka-0.kafka-service.kafka.svc.cluster.local:9092",
-        // "kafka-1.kafka-service.kafka.svc.cluster.local:9092",
-        // "kafka-2.kafka-service.kafka.svc.cluster.local:9092"
-        "127.0.0.1:9092",
+        "kafka-0.kafka-service.kafka.svc.cluster.local:9092",
+        "kafka-1.kafka-service.kafka.svc.cluster.local:9092",
+        "kafka-2.kafka-service.kafka.svc.cluster.local:9092"
+       
       ],
     });
     this.producer = this.kafka.producer();
@@ -27,7 +27,6 @@ export class KafkaClient {
       });
       await this.producer.disconnect();
     } catch (error) {
-      // console.error(error);
       errorLogger.error(error);
       throw error;
     }

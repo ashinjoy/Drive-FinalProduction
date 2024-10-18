@@ -7,7 +7,7 @@ const getAccessToken =()=>{
 }
 
 export const driverPrivate = axios.create({
-    baseURL:'http://localhost:3001/api/',
+    baseURL:'https://drivee.online/api/',
     headers:{
         'Content-Type':'application/json'
     },

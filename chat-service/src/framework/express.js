@@ -10,7 +10,7 @@ const createServer = () => {
   app.use(cookieParser())
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
-  app.use('/chat',chatRouter)
+  app.use('/api/chat',chatRouter)
   app.use(ErrorHandling.errorHandler)
   return httpServer;
 };

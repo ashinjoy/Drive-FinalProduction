@@ -7,7 +7,7 @@ function SocketWrapper({ children }) {
   const [chatSocket,setChatSocket] = useState(null)
 
   useEffect(() => {
-    const socketInstance = io(`http://localhost:3003`,{
+    const socketInstance = io(`https://drivee.online`,{
       path:'/socket.io/trip',
     });
     setSocket(socketInstance);
@@ -28,7 +28,7 @@ function SocketWrapper({ children }) {
   }, []);
 
   useEffect(()=>{
-    const chatSocketInstance = io(`http://localhost:3004`,{
+    const chatSocketInstance = io(`https://drivee.online`,{
       path:'/socket.io/chat'
     })
     setChatSocket(chatSocketInstance)

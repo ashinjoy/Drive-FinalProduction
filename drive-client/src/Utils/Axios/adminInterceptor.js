@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const adminInstance = axios.create({
-    baseURL:'http://localhost:3001/api/',
+    baseURL:'https://drivee.online/api/',
     withCredentials:true
 })
 
@@ -10,7 +10,7 @@ const getAccessToken =()=>{
 }
 
 export const adminPrivate = axios.create({
-    baseURL:'http://localhost:3001/api/',
+    baseURL:'https://drivee.online/api/',
     headers:{
         'Content-Type':'application/json'
     },  

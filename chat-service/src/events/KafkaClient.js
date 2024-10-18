@@ -5,10 +5,9 @@ export class KafkaClient {
     this.kafka = new Kafka({
       clientId: "chat-service",
       brokers: [
-        // "kafka-0.kafka-service.kafka.svc.cluster.local:9092",
-        // "kafka-1.kafka-service.kafka.svc.cluster.local:9092",
-        // "kafka-2.kafka-service.kafka.svc.cluster.local:9092"
-        "127.0.0.1:9092"
+        "kafka-0.kafka-service.kafka.svc.cluster.local:9092",
+        "kafka-1.kafka-service.kafka.svc.cluster.local:9092",
+        "kafka-2.kafka-service.kafka.svc.cluster.local:9092"
       ],
     });
     this.producer = this.kafka.producer();

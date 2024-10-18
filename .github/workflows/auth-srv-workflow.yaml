@@ -1,0 +1,37 @@
+name: Build and Deploy auth-srv
+
+on: 
+  push:
+    branches:
+      - "master"
+    paths:
+      - "auth-service/**"
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v2
+      - name: build docker image  
+        run: | 
+          cd auth-service
+          docker build -t  ashinjoy/auth-srv .
+      - name: login to docker hub
+        run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
+
+      - name: push the image to docker hub
+        run: docker push ashinjoy/auth-srv
+
+      - name: authenticate to Google cloud
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{secrets.GOOGLE_SERVICE_ACCOUNT_KEY}}
+      - name: install gcloud cli
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: ${{ secrets.GOOGLE_PROJECT_ID}}
+      - name: Deploy to GKE
+        env:
+          GOOGLE_PROJECT_ID: ${{secrets.GOOGLE_PROJECT_ID}}
+        run: |
+          gcloud container clusters get-credentials drive-project --zone asia-south1-a --project $GOOGLE_PROJECT_ID

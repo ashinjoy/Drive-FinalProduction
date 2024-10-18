@@ -11,7 +11,7 @@ const getAccessToken = () => {
 
 
 export const UserPrivate = axios.create({
-  baseURL: "http://localhost:3001/api/",
+  baseURL: "https://drivee.online/api/",
   headers: {
     "Content-Type": "application/json",
   },
