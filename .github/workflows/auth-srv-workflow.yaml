@@ -29,12 +29,14 @@ jobs:
       - name: install gcloud cli
         uses: google-github-actions/setup-gcloud@v1
         with:
-          project_id: ${{ secrets.GOOGLE_PROJECT_ID}}
+          project_id: ${{secrets.GOOGLE_PROJECT_ID}}
+          install_gke_gcloud_auth_plugin: true 
       - name: Deploy to GKE
         env:
           GOOGLE_PROJECT_ID: ${{secrets.GOOGLE_PROJECT_ID}}
         run: |
           gcloud container clusters get-credentials drive-project --zone asia-south1-a --project $GOOGLE_PROJECT_ID
+          ls -R 
           cd infra/K8s
-           kubectl apply -f auth-service.yaml
-           kubectl rollout restart deployment/drive-auth-deployment
+          kubectl apply -f auth-service.yaml
+          kubectl rollout restart deployment/drive-auth-deployment
