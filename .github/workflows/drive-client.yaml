@@ -18,11 +18,10 @@ jobs:
         run: | 
           cd drive-client
           ls -la  # List files to verify Dockerfile is present
-          docker build \
+           docker build \
             --build-arg REACT_APP_CLIENT_ID=${{ secrets.REACT_APP_CLIENT_ID }} \
             --build-arg REACT_APP_MAPBOX_TOKEN=${{ secrets.REACT_APP_MAPBOX_TOKEN }} \
-            -t ashinjoy/drive-client \
-            .
+            -t ashinjoy/drive-client .
 
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
