@@ -4,7 +4,7 @@ import { configDotenv } from "dotenv";
 import { KafkaClient } from "./events/KafkaClient.js";
 import { TOPICS } from "./events/config.js";
 
-console.log('hello');
+console.log('hello'); 
 
 
 configDotenv()
