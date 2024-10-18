@@ -6,7 +6,9 @@ function BarChartConfig(input) {
   const userData = data.slice(0,data.length).reverse()
   const driverData = data.slice(data.length).reverse()
   const userKeys = userData.map((el)=>Object.keys(el))
-  // console.log(userValues);
+  // console.log(userValues);  
+  console.log('heh');
+  
   
   const labels = userKeys.flat()
   // console.log(userValuesFlat);
