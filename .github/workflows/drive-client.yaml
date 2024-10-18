@@ -1,0 +1,49 @@
+name: Build and Deploy drive-client
+
+on: 
+  push:
+    branches:
+      - "master"
+    paths:
+      - "drive-client/**"
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v2
+
+      - name: build docker image  
+        run: | 
+          cd drive-client
+          docker build --build-arg REACT_APP_CLIENT_ID=${{secrets.REACT_APP_CLIENT_ID}} --build-arg REACT_APP_MAPBOX_TOKEN=${{secrets.REACT_APP_MAPBOX_TOKEN}} -t ashinjoy/drive-client .
+
+      - name: login to docker hub
+        run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
+
+      - name: push the image to docker hub
+        run: docker push ashinjoy/drive-client
+
+      - name: authenticate to Google cloud
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{secrets.GOOGLE_SERVICE_ACCOUNT_KEY}}
+
+      - name: install gcloud cli
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: ${{secrets.GOOGLE_PROJECT_ID}}
+          install_gke_gcloud_auth_plugin: true  # This installs the GKE auth plugin
+# This installs the GKE auth plugin which is ned to authenticate to google cloud
+
+      - name: install GKE gcloud auth plugin
+        run: |
+           gcloud components install gke-gcloud-auth-plugin   
+      - name: Deploy to GKE
+        env:
+          GOOGLE_PROJECT_ID: ${{secrets.GOOGLE_PROJECT_ID}}
+        run: |
+          gcloud container clusters get-credentials drive-project --zone asia-south1-a --project $GOOGLE_PROJECT_ID
+          kubectl apply -f infra/k8s/drive-client.yaml
+          kubectl rollout restart deployment/drive-client-deployment
