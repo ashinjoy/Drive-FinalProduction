@@ -37,6 +37,6 @@ jobs:
         run: |
           gcloud container clusters get-credentials drive-project --zone asia-south1-a --project $GOOGLE_PROJECT_ID
           ls -R infra
-          cd infra/K8s
+          cd infra/k8s
           kubectl apply -f auth-service.yaml
           kubectl rollout restart deployment/drive-auth-deployment

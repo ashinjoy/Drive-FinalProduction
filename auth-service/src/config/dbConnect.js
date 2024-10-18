@@ -6,7 +6,7 @@ export const dbConnect = async () => {
     const mongoString = process.env.MONGO_STRING;
     const connection = await mongoose.connect(mongoString);
     if (connection) {
-      infologger.info("Auth Db Connected SucecessFully");
+      infologger.info("Auth Db Connected SucecessFully");   
     }  
   } catch (error) {
     errorLogger.error("err",error);
