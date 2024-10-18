@@ -17,7 +17,7 @@ jobs:
       - name: Build Docker Image with Build Args
         run: | 
           cd drive-client
-           docker build \
+          docker build \
           --build-arg REACT_APP_CLIENT_ID=${{ secrets.REACT_APP_CLIENT_ID }} \
           --build-arg REACT_APP_MAPBOX_TOKEN=${{ secrets.REACT_APP_MAPBOX_TOKEN }} \
           -t ashinjoy/drive-client .
