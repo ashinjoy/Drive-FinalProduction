@@ -6,16 +6,19 @@ on:
       - "master"
     paths:
       - "auth-service/**"
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: code checkout
         uses: actions/checkout@v2
+
       - name: build docker image  
         run: | 
           cd auth-service
-          docker build -t  ashinjoy/auth-srv .
+          docker build -t ashinjoy/auth-srv .
+
       - name: login to docker hub
         run: docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
 
@@ -26,17 +29,21 @@ jobs:
         uses: google-github-actions/auth@v1
         with:
           credentials_json: ${{secrets.GOOGLE_SERVICE_ACCOUNT_KEY}}
+
       - name: install gcloud cli
         uses: google-github-actions/setup-gcloud@v1
         with:
           project_id: ${{secrets.GOOGLE_PROJECT_ID}}
-          install_gke_gcloud_auth_plugin: true 
+          install_gke_gcloud_auth_plugin: true  # This installs the GKE auth plugin
+
+      - name: install GKE gcloud auth plugin
+        run: |
+          sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+
       - name: Deploy to GKE
         env:
           GOOGLE_PROJECT_ID: ${{secrets.GOOGLE_PROJECT_ID}}
         run: |
           gcloud container clusters get-credentials drive-project --zone asia-south1-a --project $GOOGLE_PROJECT_ID
-          ls -R infra
-          cd infra/k8s
-          kubectl apply -f auth-service.yaml
+          kubectl apply -f infra/k8s/auth-service.yaml
           kubectl rollout restart deployment/drive-auth-deployment
