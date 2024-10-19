@@ -138,7 +138,6 @@ function   SearchLocation({setSearch}) {
                   value={dropLocation}
                   placeholder="Dropoff Location"
                   onRetrieve={handleResult}
-                  theme={geoCoderTheme}
                   options={{
                     proximity:pickUpCoords,
                     country:'in'
