@@ -23,12 +23,9 @@ export class GetNearByDriversController {
       const pickupLocation = {
         pickupLongitude,
         pickupLatitude,
-        // dropLatitude,
-        // dropLongitude,
       };
 
       const getNearByDrivers = await this.getNearByDriversUseCase.execute(
-        // userId,
         pickupLocation
       );
       const getAdditionalTripData = await this.getAdditionalTripData.execute(

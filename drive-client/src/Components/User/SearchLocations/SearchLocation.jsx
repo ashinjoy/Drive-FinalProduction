@@ -28,12 +28,7 @@ function   SearchLocation({setSearch}) {
   const { user } = useSelector((state) => state.user);
   const { additionalSearchMetaData } = useSelector((state) => state.trip);
   const dispatch = useDispatch();
-  const geoCoderTheme = {
-    variables:{
-      focus:'#F59E0B',
-      outline:'none'
-    }
-  }
+
   const handlePickUpLocation = async (e) => {
     const { value } = e.target;
     setPickupLocation(value);

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { requestRideAction } from "../../../Features/Trip/tripActions";
 import { useNavigate } from "react-router-dom";
@@ -66,7 +66,7 @@ function ListVehiclePriceDetails({
       data = { ...data, fare: autoFare };
     }
     dispatch(requestRideAction(data));
-    // navigate("/trip");
+  
   };
 
   useEffect(() => {
@@ -99,7 +99,8 @@ function ListVehiclePriceDetails({
               <div>
                 <p className="font-semibold">Bike Ride</p>
                 <p className="text-sm text-gray-500">
-                  {eta && eta} mins away • 10:33 AM
+                {eta && eta} mins •{" "}
+                {new Date(new Date().getTime() + eta * 60000).toLocaleTimeString('en-US',{hour:'numeric',minute:'numeric'})}
                 </p>
                 <p className="text-sm text-gray-500">
                   Pay directly to driver, cash/UPI only
@@ -125,7 +126,8 @@ function ListVehiclePriceDetails({
               <div>
                 <p className="font-semibold">Auto Ride</p>
                 <p className="text-sm text-gray-500">
-                  {eta && eta} mins away • 10:33 AM
+                {eta && eta} mins •{" "}
+                {new Date(new Date().getTime() + eta * 60000).toLocaleTimeString('en-US',{hour:'numeric',minute:'numeric'})}
                 </p>
                 <p className="text-sm text-gray-500">
                   Pay directly to driver, cash/UPI only
