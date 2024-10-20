@@ -47,3 +47,4 @@ jobs:
           gcloud container clusters get-credentials drive-project --zone asia-south1-a --project $GOOGLE_PROJECT_ID
           kubectl apply -f infra/k8s/payment-service.yaml
           kubectl rollout restart deployment/drive-payment-deployment
+       
