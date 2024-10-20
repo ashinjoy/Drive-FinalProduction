@@ -21,9 +21,9 @@ const createServer = () => {
     saveUninitialized:false,
   }))
 
-  app.use('/trip/users',userRouter)
-  app.use('/trip/driver',driverRouter)
-  app.use('/trip/admin',adminRouter)
+  app.use('/api/trip/users',userRouter)
+  app.use('/api/trip/driver',driverRouter)
+  app.use('/api/trip/admin',adminRouter)
   app.use(ErrorHandling.errorHandler)
   return httpServer;
 };
