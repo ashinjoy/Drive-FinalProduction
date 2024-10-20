@@ -7,8 +7,7 @@ export class PaymentRepository {
         tripId: data?.tripId,
         userId: data?.userId,
         fare: data?.fare,
-        paymentMethod: data?.paymentMethod,
-        paymentStatus: "paid",
+        paymentMethod: data?.paymentMethod
       });
       
     } catch (error) {
