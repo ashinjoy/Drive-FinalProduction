@@ -11,5 +11,5 @@ export const dbConnect = async () => {
   } catch (error) {
     errorLogger.error("err",error);
     throw error;
-  }
+  } 
 };
