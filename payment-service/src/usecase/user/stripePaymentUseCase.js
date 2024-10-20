@@ -17,7 +17,7 @@ export class StripePaymentUseCase {
     try {
       const { userId, tripId, paymentMethod, fare, driverId } = data;
       const [userDetails, tripDetails] = await Promise.all([this.userRepository.findUserById(userId),this.tripRepository.findTripById(tripId)]);
-      console.log('wowwo');
+      console.log('wowwo' );
       
      const paymentDetails =  await this.paymentRepository.findPaymentDetailsByTripById(tripId)
       console.log('paymnet',paymentDetails);
