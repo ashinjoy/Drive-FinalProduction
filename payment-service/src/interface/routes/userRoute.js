@@ -7,7 +7,7 @@ import { AddMoneyToWalletController } from '../controllers/userController/addMon
 import { GetWalletHistoryController } from '../controllers/userController/getWalletHistoryController.js'
 import { ConfirmStripePaymentController } from '../controllers/userController/confirmStripePaymentController.js'
 import { dependencies } from '../../config/dependencies.js'
-
+console.log('jo')
 const userRouter = express.Router()
 
 const controllers = {
