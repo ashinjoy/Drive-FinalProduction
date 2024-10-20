@@ -8,7 +8,7 @@ function BarChartConfig(input) {
   const userKeys = userData.map((el)=>Object.keys(el))
   // console.log(userValues);  
 
-  
+    
   
   const labels = userKeys.flat()  
   // console.log(userValuesFlat);
