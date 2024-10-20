@@ -19,7 +19,7 @@ const controllers = {
     paymentController:new PaymentController(dependencies),
     confirmStripePayment: new ConfirmStripePaymentController(dependencies),
     
-}
+} 
 
 userRouter.get('/trip-details/:tripId',AuthHandler.isUserLogin,async(req,res,next)=>controllers.getTripDetailByIdController.getTripDetailById(req,res,next))
 userRouter.get('/walletbalance/:userId',AuthHandler.isUserLogin,async(req,res,next)=>controllers.getWalletBalanceController.getWalletBalance(req,res,next))
