@@ -18,7 +18,7 @@ const controllers = {
     getWalletHistoryController: new GetWalletHistoryController(dependencies),
     paymentController:new PaymentController(dependencies),
     confirmStripePayment: new ConfirmStripePaymentController(dependencies),
-    stripePaymentController: new StripeWebHookController(dependencies)
+    
 }
 
 userRouter.get('/trip-details/:tripId',AuthHandler.isUserLogin,async(req,res,next)=>controllers.getTripDetailByIdController.getTripDetailById(req,res,next))
