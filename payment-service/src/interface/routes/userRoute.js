@@ -6,7 +6,6 @@ import { GetWalletBalanceController } from '../controllers/userController/getWal
 import { AddMoneyToWalletController } from '../controllers/userController/addMoneyToWalletController.js'
 import { GetWalletHistoryController } from '../controllers/userController/getWalletHistoryController.js'
 import { ConfirmStripePaymentController } from '../controllers/userController/confirmStripePaymentController.js'
-import { StripeWebHookController } from '../controllers/userController/stripeWebHookController.js'
 import { dependencies } from '../../config/dependencies.js'
 
 const userRouter = express.Router()
@@ -18,7 +17,6 @@ const controllers = {
     getWalletHistoryController: new GetWalletHistoryController(dependencies),
     paymentController:new PaymentController(dependencies),
     confirmStripePayment: new ConfirmStripePaymentController(dependencies),
-    
 }   
 
 userRouter.get('/trip-details/:tripId',AuthHandler.isUserLogin,async(req,res,next)=>controllers.getTripDetailByIdController.getTripDetailById(req,res,next))
