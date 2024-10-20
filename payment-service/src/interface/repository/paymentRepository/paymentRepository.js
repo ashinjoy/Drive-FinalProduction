@@ -24,4 +24,12 @@ export class PaymentRepository {
       
     }
   }
+  async findPaymentDetailsByTripById(tripId){
+    try {
+      return await paymentModel.findOne({tripId:tripId})
+    } catch (error) {
+      console.error(error);
+      throw error
+    }
+  }
 }
