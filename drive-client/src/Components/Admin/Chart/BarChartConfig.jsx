@@ -10,7 +10,7 @@ function BarChartConfig(input) {
 
   
   
-  const labels = userKeys.flat()
+  const labels = userKeys.flat()  
   // console.log(userValuesFlat);
 
   const userValues = userData.map((el)=>Object.values(el))
