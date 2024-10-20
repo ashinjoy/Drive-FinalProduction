@@ -11,4 +11,4 @@ export const dbConnect = async()=>{
         console.error(error);
         throw error
     }
-}
+}   
