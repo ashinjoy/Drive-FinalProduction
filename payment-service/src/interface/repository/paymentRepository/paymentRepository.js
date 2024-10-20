@@ -28,7 +28,7 @@ export class PaymentRepository {
     try {
       return await paymentModel.findOne({tripId:tripId})
     } catch (error) { 
-      console.error('err',error); 
+      console.error('err',error);  
       throw error
     }
   }
