@@ -27,7 +27,7 @@ export class PaymentRepository {
   async findPaymentDetailsByTripById(tripId){
     try {
       return await paymentModel.findOne({tripId:tripId})
-    } catch (error) {
+    } catch (error) { 
       console.error('err',error); 
       throw error
     }
