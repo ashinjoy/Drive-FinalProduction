@@ -327,6 +327,6 @@ function DriverMap() {
       </AnimatePresence>
     </div>
   );
-}
+} 
 
 export default DriverMap;
