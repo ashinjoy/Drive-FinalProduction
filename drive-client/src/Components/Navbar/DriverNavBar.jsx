@@ -127,7 +127,7 @@ function DriverNavBar() {
 
   return (
     <>
-      <nav className="fixed flex flex-col min-h-screen gap-6 items-center max-w-[12rem]   rounded-sm border-r-2  shadow-md p-3">
+      <nav className="fixed flex flex-col min-h-screen gap-6 items-center max-w-[12rem]  z-50 rounded-sm border-r-2  shadow-md p-3">
         <div className="flex items-center justify-center w-full">
           <img src="/assets/logo-cl.png" alt="logo" className="w-full " />
         </div>
