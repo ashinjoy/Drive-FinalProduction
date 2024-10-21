@@ -18,8 +18,8 @@ export class AddMoneyToWalletUseCase {
       const createStripeSession = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         mode: "payment",
-        success_url: "http://localhost:3000/wallet",
-        cancel_url: "http://localhost:3000/payment-failure",
+        success_url: "https://drivee.online/wallet",
+        // cancel_url: "http://localhost:3000/payment-failure",
         customer_email: userDetails?.email,
         client_reference_id: userId,
         line_items: [
