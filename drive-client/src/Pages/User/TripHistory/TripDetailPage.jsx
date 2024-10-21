@@ -88,9 +88,7 @@ function TripDetailPage() {
                 ₹{tripDetail?.fare}
               </span>
             </div>
-            <button className="mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600">
-              View Receipt
-            </button>
+            
           </div>
           <div className="bg-white shadow-md border rounded-lg p-4">
             <h2 className="text-lg font-bold text-gray-800">Routes</h2>
