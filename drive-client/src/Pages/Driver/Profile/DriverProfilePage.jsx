@@ -320,7 +320,7 @@ if(driverState?.message == 'Profile request send'){
                           alt=""
                           onClick={handlePermitImgUpload}
                         />
-                      ) : (
+                      ) : ( 
                         "No Image Found"
                       )}
                       <input type="file" name="" id="" className="hidden" ref={permitImgRef} onChange={(e)=>setVehiclePermit(e.target.files[0])}/>
