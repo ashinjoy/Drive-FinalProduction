@@ -86,7 +86,7 @@ function TripDetailPage() {
               <IoPricetagSharp size={"1.5rem"} className="text-gray-600" />
               <span className="text-gray-700 font-bold">
                 ₹{tripDetail?.fare}
-              </span>
+              </span>  
             </div>
             
           </div>
