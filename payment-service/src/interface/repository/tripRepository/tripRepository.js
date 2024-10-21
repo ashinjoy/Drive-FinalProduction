@@ -78,4 +78,12 @@ export class TripRepository {
   
   
   }
+  async findTripsById(id) {
+    try {
+    return await tripModel.findById({ _id: id }).populate('driverId')
+    } catch (error) {
+      console.error(error)
+      throw error
+    }
+  }
 }

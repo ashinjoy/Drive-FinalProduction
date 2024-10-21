@@ -4,7 +4,7 @@ export class GetTripDetailByIdUseCase{
     }
     async execute(id){
         try {
-        return  await this.tripRepository.findTripById(id)
+        return  await this.tripRepository.findTripsById(id)
         } catch (error) {
             console.error(error);
             throw error
