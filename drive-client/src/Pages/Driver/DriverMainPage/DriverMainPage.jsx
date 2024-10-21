@@ -37,7 +37,7 @@ function DriverMainPage() {
  <Home/>
 
   {/* Tables Section: Top Trips and Latest Rides */}
-  <div className="absolute top-[55rem] left-64 w-[90%] space-y-12">
+  <div className="absolute top-[55rem] left-64 w-fit space-y-12">
     {/* Top Trips Table */}
     <div className="bg-white shadow-lg rounded-lg p-6">
       <h2 className="text-xl font-bold mb-4">Top Earned Trips</h2>
